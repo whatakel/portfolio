@@ -137,7 +137,7 @@ export default function Portfolio() {
             <div className="relative w-full"> {/* ⬅️ adiciona relative aqui */}
 
               {/* Bolha por trás dos cards */}
-              <div className="absolute top-1/2 left-0 z-0 animate-drift-horizontal">
+              <div className="absolute left-0 z-0 animate-drift-horizontal">
                 <div className="w-[120px] h-[120px] blur-lg">
                   <div className="w-full h-full rounded-full gradient-background-vivid animate-morph shadow-2xl" />
                 </div>
