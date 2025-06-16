@@ -116,7 +116,234 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
+  @keyframes drift {
+    0% {
+      transform: translate(-60vw, 0vh);
+    }
+
+    15% {
+      transform: translate(-20vw, -30vh);
+    }
+
+    30% {
+      transform: translate(10vw, -10vh);
+    }
+
+    45% {
+      transform: translate(30vw, 20vh);
+    }
+
+    60% {
+      transform: translate(60vw, -40vh);
+    }
+
+    75% {
+      transform: translate(20vw, 40vh);
+    }
+
+    90% {
+      transform: translate(-30vw, 50vh);
+    }
+
+    100% {
+      transform: translate(-60vw, 0vh);
+    }
+  }
+
+
+  @keyframes morph {
+    0% {
+      border-radius: 42% 58% 54% 46% / 48% 52% 55% 45%;
+    }
+
+    15% {
+      border-radius: 60% 40% 38% 62% / 70% 30% 50% 50%;
+    }
+
+    30% {
+      border-radius: 50% 50% 60% 40% / 40% 60% 65% 35%;
+    }
+
+    45% {
+      border-radius: 55% 45% 35% 65% / 50% 50% 45% 55%;
+    }
+
+    60% {
+      border-radius: 48% 52% 60% 40% / 65% 35% 30% 70%;
+    }
+
+    75% {
+      border-radius: 70% 30% 50% 50% / 60% 40% 35% 65%;
+    }
+
+    90% {
+      border-radius: 35% 65% 55% 45% / 45% 55% 60% 40%;
+    }
+
+    100% {
+      border-radius: 42% 58% 54% 46% / 48% 52% 55% 45%;
+    }
+  }
+
+
+
+  @keyframes pulse-scale {
+
+    0%,
+    100% {
+      transform: scale(1);
+    }
+
+    15% {
+      transform: scale(1.1);
+    }
+
+    30% {
+      transform: scale(0.92);
+    }
+
+    45% {
+      transform: scale(1.04);
+    }
+
+    60% {
+      transform: scale(0.75s);
+    }
+
+    75% {
+      transform: scale(1.05);
+    }
+
+    90% {
+      transform: scale(0.92);
+    }
+  }
+
+  @keyframes driftSmall {
+    0% {
+      transform: translateX(-100%) translateY(0);
+    }
+
+    25% {
+      transform: translateX(-50%) translateY(-10vh);
+    }
+
+    50% {
+      transform: translateX(0%) translateY(5vh);
+    }
+
+    75% {
+      transform: translateX(50%) translateY(-5vh);
+    }
+
+    100% {
+      transform: translateX(100%) translateY(0);
+    }
+
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes drift-horizontal {
+    0% {
+      transform: translateX(-100%);
+    }
+
+    50% {
+      transform: translateX(500%);
+    }
+
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @layer utilities {
+
+    .animate-drift-horizontal {
+      animation: drift-horizontal 30s linear infinite;
+    }
+
+    .animate-pulse-scale {
+      animation: pulse-scale 60s ease-in-out infinite
+    }
+
+    .gradient-background {
+      background: linear-gradient(270deg,
+          #4f46e5 0%,
+          #3730a3 20%,
+          #312e81 40%,
+          #2563eb 60%,
+          #1e40af 80%,
+          #4f46e5 100%);
+      background-size: 600% 600%;
+      background-position: center;
+      animation: gradientShift 60s ease-in-out infinite,
+        morph 60s ease-in-out infinite,
+        drift 120s ease-in-out infinite;
+    }
+
+    .gradient-background-vivid {
+      background: linear-gradient(270deg,
+          #000000,
+          #f43f5e,
+          #fb7185,
+          #f97316,
+          #4ade80,
+          #22d3ee,
+          #8b5cf6,
+          #f43f5e,
+          #000000);
+      background-size: 1000% 1000%;
+      background-position: 0% 50%;
+      animation: gradientShift 120s ease-in-out infinite;
+    }
+
+    .animate-drift-small {
+      animation: driftSmall 60s ease-in-out infinite;
+    }
+
+  }
+
+
+
+}
+
+body {
+  background-color: #0f172a;
+  /* mesmo bg do body */
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #383b43;
+  /* emerald */
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #0f172a;
+  /* mesmo bg do body */
 }
