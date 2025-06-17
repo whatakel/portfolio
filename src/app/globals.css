@@ -278,7 +278,60 @@
     }
   }
 
+  @keyframes colorPulse {
+    0% {
+      background: #064e3b;
+      /* verde escuro */
+    }
+
+    33% {
+      background: #1e3a8a;
+      /* azul escuro */
+    }
+
+    66% {
+      background: #4c1d95;
+      /* roxo escuro */
+    }
+
+    100% {
+      background: #064e3b;
+    }
+  }
+
+  @keyframes pulse-slow {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+
+
+
   @layer utilities {
+    .animate-pulse-slow {
+      animation: pulse-slow 6s ease-in-out infinite;
+    }
+
+    .glow-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 280px;
+      height: 280px;
+      border-radius: 9999px;
+      opacity: 0.5;
+      z-index: 0;
+      animation: colorPulse 12s ease-in-out infinite,
+        morph 3s ease-in-out infinite;
+    }
 
     .animate-drift-horizontal {
       animation: drift-horizontal 30s linear infinite;

@@ -1,5 +1,4 @@
 "use client"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -15,16 +14,16 @@ import {
   Users,
   Globe,
   ShoppingCart,
-  Zap,
   CheckCircle,
-  Heart,
   Handshake,
-  Lightbulb,
   ArrowRight,
   Calculator,
   FileText,
   BarChart3,
   Brain,
+  SearchCheck,
+  Sparkles,
+  PanelsTopLeft,
 } from "lucide-react"
 
 export default function Portfolio() {
@@ -39,13 +38,14 @@ export default function Portfolio() {
   }
 
   const services = [
-    { icon: ShoppingCart, title: "App de pedidos &\n E-commerce", description: "Plataformas completas para delivery com gestão de pedidos", },
-    { icon: Calendar, title: "Sistema de agendamentos", description: "Sistemas de agendamento inteligentes e automatizados" },
-    { icon: Users, title: "Gestão de Clientes CRM", description: "CRM personalizado para seu negócio" },
-    { icon: Globe, title: "Sites &\n Landing Pages SEO", description: "Presença digital profissional e conversiva" },
-    { icon: ShoppingCart, title: "E-commerce", description: "Lojas virtuais completas e otimizadas" },
-    { icon: Code, title: "WordPress", description: "Sites dinâmicos e sistemas personalizados" },
-    { icon: Zap, title: "Automações", description: "Processos automatizados para otimizar seu tempo" },
+    { icon: ShoppingCart, title: "App de pedidos &\n E-commerce", description: "Aplicativos desenvolvidos sob demanda com funcionalidades específicas.", },
+    { icon: Calendar, title: "Sistema de agendamentos", description: "Soluções inteligentes e automatizadas para agendamento de serviços." },
+    { icon: Users, title: "Gestão de Clientes CRM", description: "Dashboards para monitoramento de indicadores e controle de clientes." },
+    { icon: Globe, title: "Sites &\n Landing Pages SEO", description: "Criação de páginas otimizadas com foco em conversão, eficiência e usabilidade" },
+    { icon: ShoppingCart, title: "E-commerce", description: "Lojas virtuais personalizadas, responsivas e otimizadas para vendas." },
+    { icon: PanelsTopLeft, title: "WordPress", description: "Seu site pronto em poucos dias, personalizado e de fácil manutenção." },
+    { icon: Sparkles, title: "Automações & IA", description: "Implantação e consultoria em automação de fluxos com inteligência artificial aplicada." },
+    { icon: SearchCheck, title: "SEO e Performance", description: "Consultoria de sites com foco em resultados nos mecanismos de busca." },
   ]
 
   const tools = [
@@ -97,14 +97,14 @@ export default function Portfolio() {
 
           {/* Bolha grande com morph funcionando */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 animate-drift">
-            <div className="w-[800px] h-[800px] animate-pulse-scale blur-3xl">
-              <div className="w-full h-full gradient-background opacity-10" />
+            <div className="w-[40vw] h-[40vw] animate-pulse-scale blur-3xl">
+              <div className="w-full h-full gradient-background opacity-30" />
             </div>
           </div>
-          {/* Bolha menor com cores vivas e nítidas */}
-          {/* <div className="absolute top-[30%] left-[60%] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10 animate-drift-small">
-            <div className="w-[100px] h-[100px] blur">
-              <div className="w-full h-full animate-morph rounded-full gradient-background-vivid shadow-2xl" />
+          {/* Bolha menor com cores vivas e nítidas
+          <div className="absolute top-[30%] left-[60%] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10 animate-drift-small">
+            <div className="w-[800px] h-[800px]  opacity-30">
+              <div className="w-full h-full  gradient-background-vivid shadow-2xl" />
             </div>
           </div> */}
 
@@ -129,19 +129,19 @@ export default function Portfolio() {
                 </span>
               </h1>
               <p className="text-xl text-slate-300 leading-relaxed">
-                Especialista em desenvolvimento de plataformas completas: apps de delivery, sistemas de agendamento,
+                Especialistas em desenvolvimento de plataformas completas: apps de delivery, sistemas de agendamento,
                 gestão de clientes, e-commerce, sites e automações que impulsionam seu negócio.
               </p>
             </div>
 
             <div className="relative w-full"> {/* ⬅️ adiciona relative aqui */}
 
-              {/* Bolha por trás dos cards */}
+              {/* Bolha por trás dos cards
               <div className="absolute left-0 z-0 animate-drift-horizontal">
-                <div className="w-[120px] h-[120px] blur-lg">
+                <div className="w-[120px] h-[120px] ">
                   <div className="w-full h-full rounded-full gradient-background-vivid animate-morph shadow-2xl" />
                 </div>
-              </div>
+              </div> */}
 
               {/* Grid de cards */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 z-10 relative">
@@ -250,7 +250,7 @@ export default function Portfolio() {
 
       {/* Serviços */}
       <section id="servicos" className="py-20 px-4 bg-slate-800/50 ">
-        <div className="container mx-auto w-full mx-auto px-4 md:px-16 lg:px-24 xl:px-0 max-w-[1280px]">
+        <div className="container w-full mx-auto px-4 md:px-16 lg:px-24 xl:px-0 max-w-[1280px]">
           <div className="text-center mb-16 ">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">Serviços Especializados</h2>
             <p className="text-xl text-slate-300 max-w-2xl mx-auto">
@@ -262,10 +262,10 @@ export default function Portfolio() {
             {services.map((service, index) => (
               <Card
                 key={index}
-                className="bg-slate-800 border-slate-700 hover:border-emerald-600/50 transition-all duration-300 group"
+                className="cursor-pointer bg-slate-800 border-slate-700 hover:border-emerald-600/50 transition-all duration-300 group"
               >
                 <CardHeader>
-                  <service.icon className="h-12 w-12 mb-5 text-emerald-400 group-hover:scale-110 transition-transform" />
+                  <service.icon strokeWidth={1} className="h-12 w-12 mb-5 text-emerald-400  transition-transform" />
                   <CardTitle className="text-white">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -278,99 +278,93 @@ export default function Portfolio() {
       </section>
 
       {/* Sobre - Comprometimento e Soluções */}
-      <section id="sobre" className="py-20 px-4">
-        <div className="container mx-auto grid lg:grid-cols-2 gap-12 w-full mx-auto px-4 md:px-16 lg:px-24 xl:px-0 max-w-[1280px]">
-          {/* Comprometimento, Ética e Colaboração */}
-          <Card className="bg-slate-800 border-slate-700">
-            <CardHeader>
-              <CardTitle className="text-2xl text-white flex items-center">
-                <Heart className="h-6 w-6 text-emerald-400 mr-3" />
-                Nossos Valores
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <CheckCircle className="h-6 w-6 text-emerald-400 mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Comprometimento</h3>
-                  <p className="text-slate-300">
-                    Cada projeto é tratado com dedicação total, garantindo entregas no prazo e com qualidade
-                    excepcional.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <Handshake className="h-6 w-6 text-blue-400 mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Ética</h3>
-                  <p className="text-slate-300">
-                    Transparência em todos os processos, desde o orçamento até a entrega final do projeto.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <Users className="h-6 w-6 text-emerald-400 mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Colaboração</h3>
-                  <p className="text-slate-300">
-                    Trabalho em parceria com você, ouvindo suas necessidades e sugerindo as melhores soluções.
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Como Resolver Problemas com Tecnologia */}
-          <Card className="bg-slate-800 border-slate-700">
-            <CardHeader>
-              <CardTitle className="text-2xl text-white flex items-center">
-                <Lightbulb className="h-6 w-6 text-blue-400 mr-3" />
-                Soluções Inteligentes
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <p className="text-slate-300 leading-relaxed">
-                A tecnologia é a chave para resolver problemas complexos de forma simples e eficiente. Através de
-                soluções personalizadas, posso ajudar seu negócio a:
-              </p>
-
-              <ul className="space-y-3">
-                <li className="flex items-center text-slate-300">
-                  <ArrowRight className="h-4 w-4 text-emerald-400 mr-3 flex-shrink-0" />
-                  Automatizar processos repetitivos e economizar tempo
-                </li>
-                <li className="flex items-center text-slate-300">
-                  <ArrowRight className="h-4 w-4 text-emerald-400 mr-3 flex-shrink-0" />
-                  Melhorar a experiência dos seus clientes
-                </li>
-                <li className="flex items-center text-slate-300">
-                  <ArrowRight className="h-4 w-4 text-emerald-400 mr-3 flex-shrink-0" />
-                  Aumentar a eficiência operacional
-                </li>
-                <li className="flex items-center text-slate-300">
-                  <ArrowRight className="h-4 w-4 text-emerald-400 mr-3 flex-shrink-0" />
-                  Reduzir custos operacionais
-                </li>
-                <li className="flex items-center text-slate-300">
-                  <ArrowRight className="h-4 w-4 text-emerald-400 mr-3 flex-shrink-0" />
-                  Escalar seu negócio de forma sustentável
-                </li>
-              </ul>
-
-              <div className="mt-6 p-4 bg-emerald-600/10 border border-emerald-600/20 rounded-lg">
-                <p className="text-emerald-400 font-medium">
-                  &quot;Cada desafio é uma oportunidade de criar algo extraordinário&quot;
-                </p>
-              </div>
-            </CardContent>
-          </Card>
+      <section id="sobre" className="py-24 px-4 bg-slate-900 relative overflow-hidden">
+        {/* Aurora moderna no fundo da coluna esquerda */}
+        {/* coluna esquerda */}
+        <div className="absolute top-1/2 left-[30%]  h-full pointer-events-none z-0">
+          <div className="w-[70vh] h-[70vh] bg-gradient-to-br from-emerald-500/30 via-cyan-500/20 to-purple-600/50 blur-3xl rounded-full opacity-40 animate-pulse-slow transform -translate-x-1/2 -translate-y-1/2" />
         </div>
-      </section>
+
+
+        <div className="container grid lg:grid-cols-2 gap-16 w-full mx-auto px-4 md:px-16 lg:px-24 xl:px-0 max-w-[1280px] relative z-10">
+          <Card className="p-0 border-slate-700 justify-center bg-emerald-900/95 backdrop-blur supports-[backdrop-filter]:bg-slate-700/10 shadow-xl shadow-emerald-800/10">
+            {/* Card de Valores */}
+            <CardHeader className="py-5 border-b rounded-sm  border-slate-700 justify-center  backdrop-blur supports-[backdrop-filter]:bg-slate-700/00 shadow-xl shadow-emerald-800/10">
+              <CardTitle className="text-3xl font-semibold  text-white ">
+                <div className="flex items-center gap-3">
+                  <span className="w-3 h-3 rounded-full bg-emerald-400 shadow-md shadow-emerald-500/90 " />
+                  Essência da Marca
+                </div>
+              </CardTitle>
+            </CardHeader>
+
+
+            <CardContent className="my-6 space-y-6 relative overflow-hidden divide-y divide-slate-700/50">
+
+              {/* Comprometimento */}
+              <div className="flex items-center gap-4 pt-0 pb-4">
+                <div className="p-2 bg-emerald-500/10 rounded-md">
+                  <CheckCircle className="h-6 w-6 text-emerald-400" />
+                </div>
+                <div className="space-y-1">
+                  <h3 className="text-base font-medium text-white">Comprometimento</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed">
+                    Cada projeto é tratado com dedicação total, com foco em qualidade, pontualidade e excelência.
+                  </p>
+                </div>
+              </div>
+
+              {/* Ética */}
+              <div className="flex items-center gap-4 pt-4 pb-4">
+                <div className="p-2 bg-blue-500/10 rounded-md">
+                  <Handshake className="h-6 w-6 text-blue-400" />
+                </div>
+                <div className="space-y-1">
+                  <h3 className="text-base font-medium text-white">Ética</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed">
+                    Transparência e honestidade em todos os processos, do orçamento à entrega final.
+                  </p>
+                </div>
+              </div>
+
+              {/* Colaboração */}
+              <div className="flex items-center gap-4 pt-4">
+                <div className="p-2 bg-emerald-500/10 rounded-md">
+                  <Users className="h-6 w-6 text-emerald-400" />
+                </div>
+                <div className="space-y-1">
+                  <h3 className="text-base font-medium text-white">Colaboração</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed">
+                    Trabalhamos lado a lado com você, escutando suas ideias e transformando-as em soluções eficazes.
+                  </p>
+                </div>
+              </div>
+
+            </CardContent>
+
+          </Card>
+
+          {/* Texto ilustrativo */}
+          <div className="flex items-center justify-center">
+            <div className="space-y-6 max-w-md text-center lg:text-left">
+              <h2 className="text-4xl font-bold text-white leading-tight">
+                Soluções que geram <span className="text-emerald-400">impacto real</span>
+              </h2>
+              <p className="text-slate-400 text-lg leading-relaxed">
+                Utilizamos tecnologia de ponta, metodologias ágeis e foco em resultado para criar plataformas que transformam ideias em realidade.
+              </p>
+              <p className="text-slate-400 text-lg leading-relaxed">
+                Seja um site institucional, um sistema personalizado ou automações inteligentes, sua necessidade é o ponto de partida.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section >
+
+
 
       {/* Ferramentas Desenvolvidas */}
-      <section id="ferramentas" className="py-20 px-4 bg-slate-800/50">
+      < section id="ferramentas" className="py-20 px-4 bg-slate-800/50" >
         <div className="container w-full mx-auto px-4 md:px-16 lg:px-24 xl:px-0 max-w-[1280px]">
           <div className="text-center mb-16 ">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">Ferramentas Úteis</h2>
@@ -400,10 +394,10 @@ export default function Portfolio() {
             ))}
           </div>
         </div>
-      </section>
+      </ section >
 
       {/* Footer */}
-      <footer className="py-12 px-4 border-t border-slate-800">
+      < footer className="py-12 px-4 border-t border-slate-800" >
         <div className="container mx-auto text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <Code className="h-6 w-6 text-emerald-400" />
@@ -415,7 +409,7 @@ export default function Portfolio() {
             Fale Comigo no WhatsApp
           </Button>
         </div>
-      </footer>
-    </div>
+      </ footer>
+    </div >
   )
 }
